@@ -22,20 +22,20 @@ public class Ordenacao {
 
     public void ordenacaoSelecao() {
         for (int i = 0; i < vetor.length - 1; i++) {
-            int minimo = i;
+            int elemento = i;
             for (int j = i + 1; j < vetor.length; j++)
-                if (vetor[j] < vetor[minimo])
-                    minimo = j;
-            int tempo = vetor[minimo];
-            vetor[minimo] = vetor[i];
+                if (vetor[j] < vetor[elemento])
+                    elemento = j;
+            int tempo = vetor[elemento];
+            vetor[elemento] = vetor[i];
             vetor[i] = tempo;
         }
     }
 
     public void ordenacaoBolha() {
-        int menor = vetor.length;
-        for (int i = 0; i < menor - 1; i++)
-            for (int j = 0; j < menor - i - 1; j++)
+        int n = vetor.length;
+        for (int i = 0; i < n - 1; i++)
+            for (int j = 0; j < n - i - 1; j++)
                 if (vetor[j] > vetor[j + 1]) {
                     int tempo = vetor[j];
                     vetor[j] = vetor[j + 1];
@@ -45,9 +45,9 @@ public class Ordenacao {
 
     public static void main(String[] args) {
         String input = JOptionPane.showInputDialog("Informe o tamanho do seu vetor:");
-        int menor = Integer.parseInt(input);
-        int[] vetor = new int[menor];
-        for (int i = 0; i < menor; i++) {
+        int n = Integer.parseInt(input);
+        int[] vetor = new int[n];
+        for (int i = 0; i < n; i++) {
             input = JOptionPane.showInputDialog("Informe o elemento " + (i + 1) + " :");
             vetor[i] = Integer.parseInt(input);
         }
@@ -70,3 +70,4 @@ public class Ordenacao {
         JOptionPane.showMessageDialog(null, "Vetor ordenado: " + Arrays.toString(vetor));
     }
 }
+
